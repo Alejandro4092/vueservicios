@@ -1,19 +1,23 @@
 <template>
   
-  <EmpleadosDetails/>
+
+  <MenuComponent/>
 </template>
 
 <script>
 // import CochesComponent from './components/CochesComponent.vue'
 // import CustomersComponent from './components/CustomersComponent.vue'
-import EmpleadosDetails from './components/EmpeadosDetails.vue'
+// import EmpleadosDetails from './components/EmpeadosDetails.vue'
+import MenuComponent from './components/MenuComponent.vue'
+
 
 export default {
   name: 'App',
   components: {
     // CustomersComponent
     // CochesComponent
-    EmpleadosDetails
+    // EmpleadosDetails,
+    MenuComponent
   }
 }
 </script>
