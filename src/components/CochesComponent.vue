@@ -33,7 +33,7 @@ export default {
     },
     mounted() {
         //UNA PROMESA NO ES UN METODO, ES UN OBJETO
-       service.getCoches.then(result=>{
+       service.getCoches().then(result=>{
         this.coches=result;
        })
     }
