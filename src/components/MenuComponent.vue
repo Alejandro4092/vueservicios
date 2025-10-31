@@ -27,7 +27,9 @@
                             Dropdown
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li v-for="oficio in oficios" :key="oficio">
+                              <router-link class="dropdown-item" :to="'/empeadosoficio/'+oficio">{{oficio}}</router-link>
+                              </li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -49,10 +51,31 @@
 </template>
 
 <script>
+import Global from '@/Global'
+import axios from 'axios'
 export default {
-    name: "MenuComponent"
+    name: "MenuComponent",
+    data(){
+      return {
+        oficios:[]
+      
+
+    }
+  },
+  mounted(){
+    let request="api/empleados/oficios";
+    let url=Global.urlApiEmpleados+request;
+    axios.get(url).then(response=>{
+      console.log("leyendo oficios")
+      this.oficios=response.data
+    })
+  
+}
+
+
+
+
 }
 </script>
-<style>
-</style>
+
 
