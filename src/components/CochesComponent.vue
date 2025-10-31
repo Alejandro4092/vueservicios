@@ -17,10 +17,12 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Global from './../Global'
 
-let urlApi = Global.urlApiCoches;
+
+import ServiceCoches from './../services/ServiceCoches'
+const service=new ServiceCoches();
+
+
 
 export default {
     name: 'CochesComponent',
@@ -30,12 +32,10 @@ export default {
         }
     },
     mounted() {
-        const request = "webresources/coches";
-        const url = urlApi + request;
-        axios.get(url).then(response => {
-            console.log('leyendo servicios')
-            this.coches = response.data
-        })
+        //UNA PROMESA NO ES UN METODO, ES UN OBJETO
+       service.getCoches.then(result=>{
+        this.coches=result;
+       })
     }
 }
 </script>
